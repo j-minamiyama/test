@@ -1,3 +1,4 @@
+#テスト
 #OSはCentOS
 FROM centos:latest
 
