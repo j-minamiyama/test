@@ -37,43 +37,6 @@ RUN yum -y install \
            gdbm-devel \
            python-devel 
 
-# Python3.5.2をインストール
-# Python3.5.2をダウンロード
-WORKDIR /root
-RUN wget https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tgz
-RUN tar xzvf Python-3.5.2.tgz
-
-# makeでインストール
-WORKDIR ./Python-3.5.2
-RUN ./configure --with-threads
-RUN make install
-
-# pipインストール(最新版)
-RUN wget https://bootstrap.pypa.io/get-pip.py
-RUN python get-pip.py
-
-# readlineインストール
-RUN pip install readline
-
-# virtualenvインストール
-RUN pip install virtualenv
-
-# Djangoインストール
-RUN pip install django
-
-# MeCabインスト
-RUN git clone https://github.com/taku910/mecab.git && \
-    cd mecab/mecab && \
-    ./configure  --enable-utf8-only  && \
-    make && \
-    make check && \
-    make install && \
-    cd ../mecab-ipadic && \
-    ./configure --with-charset=utf8 && \
-    make && \
-    make install && \
-    pip install mecab-python3
-
 WORKDIR /root
 CMD ["/bin/bash"]
 
