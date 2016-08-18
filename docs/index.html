@@ -1,86 +1,86 @@
 <html>
 <head><title>殴り書き手順書</title></head>
 <body>
-
-
-
-docker pull jminamiyama/test
-
-docker run -it --name "py3" jminamiyama/test /bin/bash
-
-git clone https://github.com/yyuu/pyenv.git ~/.pyenv
-#bash_profileに環境変数を記述します。
-vi ~/.bash_profile
-
-==.bash_profile==
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-=================
-
-source .bash_profile
-pyenv version
-
-#インストールできるバージョン一覧確認
-pyenv install --list
-
-今回は現時点の安定版の3.5.2をインストールします。
-pyenv install 3.5.2
-pyenv global 3.5.2
-pyenv rehash
-python --version
-
-
-
-git clone https://github.com/taku910/mecab.git
-cd mecab/mecab
-./configure  --enable-utf8-only
-make
-make check
-make install
-
-cd ../mecab-ipadic
-./configure --with-charset=utf8
-make
-make install
-pip install mecab-python3
-
-vi /etc/ld.so.conf
-==ld.so.conf==
-include ld.so.conf.d/*.conf
-/usr/local/lib　←　この行を追加
-==============
-ldconfigを実行する。
-
-ldconfig
-wget https://bootstrap.pypa.io/get-pip.py
-python get-pip.py
-pip install readline
-pip install django
-
-
-参考文献
-# exitしてもコンテナは終了しない
-docker exec -it CONTAINER /bin/bash
-
-
-http://qiita.com/suin/items/856bf782d0d295352e51
-
-http://qiita.com/yuki2006/items/6cea8c352e38f047b52a#comment-8e863c71962008035d0d
-
-http://qiita.com/grachro/items/4fbc9bf8174c5abb7bdd
-
-http://qiita.com/curseoff/items/a9e64ad01d673abb6866
-http://qiita.com/suin/items/20d735823e158196983e
-
-
-Docker　イメージ一括削除
-$ docker rmi `docker images -aq`
-Docker　コンテナ一括削除
-$ docker rm $(docker ps -a -q)
-
-python3インストール
-http://pppurple.hatenablog.com/entry/2016/01/24/213645
-
+<br>
+<br>
+<br>
+<br>docker pull jminamiyama/test
+<br>
+<br>docker run -it --name "py3" jminamiyama/test /bin/bash
+<br>
+<br>git clone https://github.com/yyuu/pyenv.git ~/.pyenv
+<br>#bash_profileに環境変数を記述します。
+<br>vi ~/.bash_profile
+<br>
+<br>==.bash_profile==
+<br># pyenv
+<br>export PYENV_ROOT="$HOME/.pyenv"
+<br>export PATH="$PYENV_ROOT/bin:$PATH"
+<br>eval "$(pyenv init -)"
+<br>=================
+<br>
+<br>source .bash_profile
+<br>pyenv version
+<br>
+<br>#インストールできるバージョン一覧確認
+<br>pyenv install --list
+<br>
+<br>今回は現時点の安定版の3.5.2をインストールします。
+<br>pyenv install 3.5.2
+<br>pyenv global 3.5.2
+<br>pyenv rehash
+<br>python --version
+<br>
+<br>
+<br>
+<br>git clone https://github.com/taku910/mecab.git
+<br>cd mecab/mecab
+<br>./configure  --enable-utf8-only
+<br>make
+<br>make check
+<br>make install
+<br>
+<br>cd ../mecab-ipadic
+<br>./configure --with-charset=utf8
+<br>make
+<br>make install
+<br>pip install mecab-python3
+<br>
+<br>vi /etc/ld.so.conf
+<br>==ld.so.conf==
+<br>include ld.so.conf.d/*.conf
+<br>/usr/local/lib　←　この行を追加
+<br>==============
+<br>ldconfigを実行する。
+<br>
+<br>ldconfig
+<br>wget https://bootstrap.pypa.io/get-pip.py
+<br>python get-pip.py
+<br>pip install readline
+<br>pip install django
+<br>
+<br>
+<br>参考文献
+<br># exitしてもコンテナは終了しない
+<br>docker exec -it CONTAINER /bin/bash
+<br>
+<br>
+<br>http://qiita.com/suin/items/856bf782d0d295352e51
+<br>
+<br>http://qiita.com/yuki2006/items/6cea8c352e38f047b52a#comment-8e863c71962008035d0d
+<br>
+<br>http://qiita.com/grachro/items/4fbc9bf8174c5abb7bdd
+<br>
+<br>http://qiita.com/curseoff/items/a9e64ad01d673abb6866
+<br>http://qiita.com/suin/items/20d735823e158196983e
+<br>
+<br>
+<br>Docker　イメージ一括削除
+<br>$ docker rmi `docker images -aq`
+<br>Docker　コンテナ一括削除
+<br>$ docker rm $(docker ps -a -q)
+<br>
+<br>python3インストール
+<br>http://pppurple.hatenablog.com/entry/2016/01/24/213645
+<br>
 </body></html>
